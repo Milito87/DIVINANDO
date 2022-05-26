@@ -35,4 +35,11 @@
     <string name="your_web_client_id">1087116395341-12qu89kf6najbai67cdrnp13dcc0nl2h.apps.googleusercontent.com</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">next</string>
+    <string name="usuario">usuario</string>
+    <string name="logo">logo</string>
+    <string name="true_">true</string>
+    <string name="false_">false</string>
+    <string name="images">images</string>
+    <string name="add_">ADD</string>
 </resources>

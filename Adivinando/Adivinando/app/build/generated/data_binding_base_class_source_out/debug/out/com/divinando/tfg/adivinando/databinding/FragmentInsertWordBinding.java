@@ -4,25 +4,38 @@ package com.divinando.tfg.adivinando.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.Button;
+import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.divinando.tfg.adivinando.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class FragmentInsertWordBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final ConstraintLayout rootView;
 
-  private FragmentInsertWordBinding(@NonNull FrameLayout rootView) {
+  @NonNull
+  public final Button btAddWord;
+
+  @NonNull
+  public final EditText tvAddWord;
+
+  private FragmentInsertWordBinding(@NonNull ConstraintLayout rootView, @NonNull Button btAddWord,
+      @NonNull EditText tvAddWord) {
     this.rootView = rootView;
+    this.btAddWord = btAddWord;
+    this.tvAddWord = tvAddWord;
   }
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -43,10 +56,25 @@ public final class FragmentInsertWordBinding implements ViewBinding {
 
   @NonNull
   public static FragmentInsertWordBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.btAddWord;
+      Button btAddWord = ViewBindings.findChildViewById(rootView, id);
+      if (btAddWord == null) {
+        break missingId;
+      }
 
-    return new FragmentInsertWordBinding((FrameLayout) rootView);
+      id = R.id.tvAddWord;
+      EditText tvAddWord = ViewBindings.findChildViewById(rootView, id);
+      if (tvAddWord == null) {
+        break missingId;
+      }
+
+      return new FragmentInsertWordBinding((ConstraintLayout) rootView, btAddWord, tvAddWord);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

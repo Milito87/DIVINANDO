@@ -15,6 +15,7 @@ class HomeActivity : AppCompatActivity() {
     lateinit var tvFam: TextView
     private val db = FirebaseFirestore.getInstance()
     var userName = "Sonia"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)

@@ -4,25 +4,118 @@ package com.divinando.tfg.adivinando.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.Group;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.divinando.tfg.adivinando.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class FragmentEncadenadosBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final ConstraintLayout rootView;
 
-  private FragmentEncadenadosBinding(@NonNull FrameLayout rootView) {
+  @NonNull
+  public final Group GroupA;
+
+  @NonNull
+  public final Group GroupB;
+
+  @NonNull
+  public final Group GroupC;
+
+  @NonNull
+  public final Button btNextChain;
+
+  @NonNull
+  public final TextView tvChainA1;
+
+  @NonNull
+  public final TextView tvChainA2;
+
+  @NonNull
+  public final TextView tvChainA3;
+
+  @NonNull
+  public final TextView tvChainA4;
+
+  @NonNull
+  public final TextView tvChainA5;
+
+  @NonNull
+  public final TextView tvChainB1;
+
+  @NonNull
+  public final TextView tvChainB2;
+
+  @NonNull
+  public final TextView tvChainB3;
+
+  @NonNull
+  public final TextView tvChainB4;
+
+  @NonNull
+  public final TextView tvChainB5;
+
+  @NonNull
+  public final EditText tvChainC1;
+
+  @NonNull
+  public final EditText tvChainC2;
+
+  @NonNull
+  public final EditText tvChainC3;
+
+  @NonNull
+  public final EditText tvChainC4;
+
+  @NonNull
+  public final EditText tvChainC5;
+
+  @NonNull
+  public final TextView tvScore;
+
+  private FragmentEncadenadosBinding(@NonNull ConstraintLayout rootView, @NonNull Group GroupA,
+      @NonNull Group GroupB, @NonNull Group GroupC, @NonNull Button btNextChain,
+      @NonNull TextView tvChainA1, @NonNull TextView tvChainA2, @NonNull TextView tvChainA3,
+      @NonNull TextView tvChainA4, @NonNull TextView tvChainA5, @NonNull TextView tvChainB1,
+      @NonNull TextView tvChainB2, @NonNull TextView tvChainB3, @NonNull TextView tvChainB4,
+      @NonNull TextView tvChainB5, @NonNull EditText tvChainC1, @NonNull EditText tvChainC2,
+      @NonNull EditText tvChainC3, @NonNull EditText tvChainC4, @NonNull EditText tvChainC5,
+      @NonNull TextView tvScore) {
     this.rootView = rootView;
+    this.GroupA = GroupA;
+    this.GroupB = GroupB;
+    this.GroupC = GroupC;
+    this.btNextChain = btNextChain;
+    this.tvChainA1 = tvChainA1;
+    this.tvChainA2 = tvChainA2;
+    this.tvChainA3 = tvChainA3;
+    this.tvChainA4 = tvChainA4;
+    this.tvChainA5 = tvChainA5;
+    this.tvChainB1 = tvChainB1;
+    this.tvChainB2 = tvChainB2;
+    this.tvChainB3 = tvChainB3;
+    this.tvChainB4 = tvChainB4;
+    this.tvChainB5 = tvChainB5;
+    this.tvChainC1 = tvChainC1;
+    this.tvChainC2 = tvChainC2;
+    this.tvChainC3 = tvChainC3;
+    this.tvChainC4 = tvChainC4;
+    this.tvChainC5 = tvChainC5;
+    this.tvScore = tvScore;
   }
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -43,10 +136,136 @@ public final class FragmentEncadenadosBinding implements ViewBinding {
 
   @NonNull
   public static FragmentEncadenadosBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.GroupA;
+      Group GroupA = ViewBindings.findChildViewById(rootView, id);
+      if (GroupA == null) {
+        break missingId;
+      }
 
-    return new FragmentEncadenadosBinding((FrameLayout) rootView);
+      id = R.id.GroupB;
+      Group GroupB = ViewBindings.findChildViewById(rootView, id);
+      if (GroupB == null) {
+        break missingId;
+      }
+
+      id = R.id.GroupC;
+      Group GroupC = ViewBindings.findChildViewById(rootView, id);
+      if (GroupC == null) {
+        break missingId;
+      }
+
+      id = R.id.btNextChain;
+      Button btNextChain = ViewBindings.findChildViewById(rootView, id);
+      if (btNextChain == null) {
+        break missingId;
+      }
+
+      id = R.id.tvChainA1;
+      TextView tvChainA1 = ViewBindings.findChildViewById(rootView, id);
+      if (tvChainA1 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvChainA2;
+      TextView tvChainA2 = ViewBindings.findChildViewById(rootView, id);
+      if (tvChainA2 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvChainA3;
+      TextView tvChainA3 = ViewBindings.findChildViewById(rootView, id);
+      if (tvChainA3 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvChainA4;
+      TextView tvChainA4 = ViewBindings.findChildViewById(rootView, id);
+      if (tvChainA4 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvChainA5;
+      TextView tvChainA5 = ViewBindings.findChildViewById(rootView, id);
+      if (tvChainA5 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvChainB1;
+      TextView tvChainB1 = ViewBindings.findChildViewById(rootView, id);
+      if (tvChainB1 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvChainB2;
+      TextView tvChainB2 = ViewBindings.findChildViewById(rootView, id);
+      if (tvChainB2 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvChainB3;
+      TextView tvChainB3 = ViewBindings.findChildViewById(rootView, id);
+      if (tvChainB3 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvChainB4;
+      TextView tvChainB4 = ViewBindings.findChildViewById(rootView, id);
+      if (tvChainB4 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvChainB5;
+      TextView tvChainB5 = ViewBindings.findChildViewById(rootView, id);
+      if (tvChainB5 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvChainC1;
+      EditText tvChainC1 = ViewBindings.findChildViewById(rootView, id);
+      if (tvChainC1 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvChainC2;
+      EditText tvChainC2 = ViewBindings.findChildViewById(rootView, id);
+      if (tvChainC2 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvChainC3;
+      EditText tvChainC3 = ViewBindings.findChildViewById(rootView, id);
+      if (tvChainC3 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvChainC4;
+      EditText tvChainC4 = ViewBindings.findChildViewById(rootView, id);
+      if (tvChainC4 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvChainC5;
+      EditText tvChainC5 = ViewBindings.findChildViewById(rootView, id);
+      if (tvChainC5 == null) {
+        break missingId;
+      }
+
+      id = R.id.tvScore;
+      TextView tvScore = ViewBindings.findChildViewById(rootView, id);
+      if (tvScore == null) {
+        break missingId;
+      }
+
+      return new FragmentEncadenadosBinding((ConstraintLayout) rootView, GroupA, GroupB, GroupC,
+          btNextChain, tvChainA1, tvChainA2, tvChainA3, tvChainA4, tvChainA5, tvChainB1, tvChainB2,
+          tvChainB3, tvChainB4, tvChainB5, tvChainC1, tvChainC2, tvChainC3, tvChainC4, tvChainC5,
+          tvScore);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

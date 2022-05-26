@@ -89,24 +89,36 @@
             android:id="@+id/action_normalMode_self"
             app:destination="@id/normalMode" />
         <action
-            android:id="@+id/action_normalMode_to_nav_home"
-            app:destination="@id/nav_home" />
+            android:id="@+id/normal_toend"
+            app:destination="@id/endFragment" />
     </fragment>
     <fragment
         android:id="@+id/tildes"
         android:name="com.divinando.tfg.adivinando.ui.GameModes.modotildes.tildes"
         android:label="Tildes"
-        tools:layout="@layout/fragment_tildes" />
+        tools:layout="@layout/fragment_tildes" >
+        <action
+            android:id="@+id/tildes_toend"
+            app:destination="@id/endFragment" />
+    </fragment>
     <fragment
         android:id="@+id/countryFlags"
         android:name="com.divinando.tfg.adivinando.ui.GameModes.CountryFlags.CountryFlags"
         android:label="FlagGuesser"
-        tools:layout="@layout/fragment_country_flags" />
+        tools:layout="@layout/fragment_country_flags" >
+        <action
+            android:id="@+id/country_toend"
+            app:destination="@id/endFragment" />
+    </fragment>
     <fragment
         android:id="@+id/encadenados"
         android:name="com.divinando.tfg.adivinando.ui.GameModes.encadenados.Encadenados"
         android:label="fragment_encadenados"
-        tools:layout="@layout/fragment_encadenados" />
+        tools:layout="@layout/fragment_encadenados" >
+        <action
+            android:id="@+id/enc_toend"
+            app:destination="@id/endFragment" />
+    </fragment>
     <fragment
         android:id="@+id/insertWord"
         android:name="com.divinando.tfg.adivinando.ui.GameModes.InsertaPalabraBd.insertWord"
@@ -116,10 +128,26 @@
         android:id="@+id/fourChooser"
         android:name="com.divinando.tfg.adivinando.ui.GameModes.fourChooser.fourChooser"
         android:label="fragment_four_chooser"
-        tools:layout="@layout/fragment_four_chooser" />
+        tools:layout="@layout/fragment_four_chooser" >
+        <action
+            android:id="@+id/chooser_toend"
+            app:destination="@id/endFragment" />
+    </fragment>
     <fragment
         android:id="@+id/guessIT"
         android:name="com.divinando.tfg.adivinando.ui.GameModes.modoGuessIT.GuessIT"
         android:label="fragment_guess_i_t"
-        tools:layout="@layout/fragment_guess_i_t" />
+        tools:layout="@layout/fragment_guess_i_t" >
+        <action
+            android:id="@+id/guess_toend"
+            app:destination="@id/endFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/endFragment"
+        android:name="com.divinando.tfg.adivinando.ui.EndFragment"
+        android:label="EndFragment" >
+        <action
+            android:id="@+id/end_tohome"
+            app:destination="@id/nav_home" />
+    </fragment>
 </navigation>

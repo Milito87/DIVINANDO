@@ -4,25 +4,56 @@ package com.divinando.tfg.adivinando.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.divinando.tfg.adivinando.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class FragmentGuessITBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final ConstraintLayout rootView;
 
-  private FragmentGuessITBinding(@NonNull FrameLayout rootView) {
+  @NonNull
+  public final Button btFalse;
+
+  @NonNull
+  public final Button btNextClub;
+
+  @NonNull
+  public final Button btTrue;
+
+  @NonNull
+  public final ImageView iClub;
+
+  @NonNull
+  public final TextView tvClubName;
+
+  @NonNull
+  public final TextView tvRound;
+
+  private FragmentGuessITBinding(@NonNull ConstraintLayout rootView, @NonNull Button btFalse,
+      @NonNull Button btNextClub, @NonNull Button btTrue, @NonNull ImageView iClub,
+      @NonNull TextView tvClubName, @NonNull TextView tvRound) {
     this.rootView = rootView;
+    this.btFalse = btFalse;
+    this.btNextClub = btNextClub;
+    this.btTrue = btTrue;
+    this.iClub = iClub;
+    this.tvClubName = tvClubName;
+    this.tvRound = tvRound;
   }
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -43,10 +74,50 @@ public final class FragmentGuessITBinding implements ViewBinding {
 
   @NonNull
   public static FragmentGuessITBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.btFalse;
+      Button btFalse = ViewBindings.findChildViewById(rootView, id);
+      if (btFalse == null) {
+        break missingId;
+      }
 
-    return new FragmentGuessITBinding((FrameLayout) rootView);
+      id = R.id.btNextClub;
+      Button btNextClub = ViewBindings.findChildViewById(rootView, id);
+      if (btNextClub == null) {
+        break missingId;
+      }
+
+      id = R.id.btTrue;
+      Button btTrue = ViewBindings.findChildViewById(rootView, id);
+      if (btTrue == null) {
+        break missingId;
+      }
+
+      id = R.id.iClub;
+      ImageView iClub = ViewBindings.findChildViewById(rootView, id);
+      if (iClub == null) {
+        break missingId;
+      }
+
+      id = R.id.tvClubName;
+      TextView tvClubName = ViewBindings.findChildViewById(rootView, id);
+      if (tvClubName == null) {
+        break missingId;
+      }
+
+      id = R.id.tvRound;
+      TextView tvRound = ViewBindings.findChildViewById(rootView, id);
+      if (tvRound == null) {
+        break missingId;
+      }
+
+      return new FragmentGuessITBinding((ConstraintLayout) rootView, btFalse, btNextClub, btTrue,
+          iClub, tvClubName, tvRound);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

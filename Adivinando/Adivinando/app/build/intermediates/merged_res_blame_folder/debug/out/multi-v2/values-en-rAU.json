@@ -1,10 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\DIVINANDO\\Adivinando\\Adivinando\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rAU\\values-en-rAU.xml",
+            "outputFile": "C:\\Users\\Milito\\Documents\\GitHub\\DIVINANDO\\Adivinando\\Adivinando\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rAU\\values-en-rAU.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ajgar\\.gradle\\caches\\transforms-3\\69b451bc439eee9187a002c1f8a12b42\\transformed\\appcompat-1.4.1\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "source": "C:\\Users\\Milito\\.gradle\\caches\\transforms-3\\41e90378df6d59f9511fa64cbd96de22\\transformed\\navigation-ui-2.4.2\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,161",
+                        "endColumns": "105,116",
+                        "endOffsets": "156,273"
+                    },
+                    "to": {
+                        "startLines": "29,30",
+                        "startColumns": "4,4",
+                        "startOffsets": "2762,2868",
+                        "endColumns": "105,116",
+                        "endOffsets": "2863,2980"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Milito\\.gradle\\caches\\transforms-3\\69b451bc439eee9187a002c1f8a12b42\\transformed\\appcompat-1.4.1\\res\\values-en-rAU\\values-en-rAU.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ajgar\\.gradle\\caches\\transforms-3\\f3e85cd27ef496b0f55933753b126385\\transformed\\core-1.7.0\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "source": "C:\\Users\\Milito\\.gradle\\caches\\transforms-3\\f3e85cd27ef496b0f55933753b126385\\transformed\\core-1.7.0\\res\\values-en-rAU\\values-en-rAU.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -35,23 +52,6 @@
                         "startOffsets": "3068",
                         "endColumns": "100",
                         "endOffsets": "3164"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\ajgar\\.gradle\\caches\\transforms-3\\41e90378df6d59f9511fa64cbd96de22\\transformed\\navigation-ui-2.4.2\\res\\values-en-rAU\\values-en-rAU.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,161",
-                        "endColumns": "105,116",
-                        "endOffsets": "156,273"
-                    },
-                    "to": {
-                        "startLines": "29,30",
-                        "startColumns": "4,4",
-                        "startOffsets": "2762,2868",
-                        "endColumns": "105,116",
-                        "endOffsets": "2863,2980"
                     }
                 }
             ]

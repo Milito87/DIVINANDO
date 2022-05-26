@@ -27,11 +27,11 @@ class GameViewHolder(@NonNull itemView: View) : RecyclerView.ViewHolder(itemView
                 when (tvGameTitle.text) {
                     "Normal" ->  findNavController(itemView).navigate(R.id.action_game_to_normalMode,bundle);
                     "Con Tildes" -> findNavController(itemView).navigate(R.id.action_game_to_tildes,bundle);
-                    "Encadenados"-> findNavController(itemView).navigate(R.id.action_game_to_encadenados)
+                    "Encadenados"-> findNavController(itemView).navigate(R.id.action_game_to_encadenados, bundle)
                     "CountryGuesser" -> findNavController(itemView).navigate(R.id.action_game_to_countryFlags,bundle);
                     "InsertPalabras" -> findNavController(itemView).navigate(R.id.action_game_to_insertWord)
-                    "4Chooser" -> findNavController(itemView).navigate(R.id.action_game_to_fourChooser)
-                    "GUESS IT"-> findNavController(itemView).navigate(R.id.action_game_to_guessIT)
+                    "4Chooser" -> findNavController(itemView).navigate(R.id.action_game_to_fourChooser, bundle)
+                    "GUESS IT"-> findNavController(itemView).navigate(R.id.action_game_to_guessIT, bundle)
                     else -> {
                         findNavController(itemView).navigate(R.id.action_game_to_nav_home);
                     }

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -20,16 +21,64 @@ public final class FragmentHomeBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final CardView cardDivHome;
+
+  @NonNull
+  public final CardView cardDivTilHome;
+
+  @NonNull
+  public final CardView cardEncHome;
+
+  @NonNull
+  public final CardView cardEscudoHome;
+
+  @NonNull
+  public final CardView cardFamHome;
+
+  @NonNull
+  public final CardView cardPaisHome;
+
+  @NonNull
   public final ConstraintLayout swipe;
 
   @NonNull
-  public final TextView tvGameDesc2;
+  public final TextView tvDivHome;
 
-  private FragmentHomeBinding(@NonNull ConstraintLayout rootView, @NonNull ConstraintLayout swipe,
-      @NonNull TextView tvGameDesc2) {
+  @NonNull
+  public final TextView tvDivTilHome;
+
+  @NonNull
+  public final TextView tvEncHome;
+
+  @NonNull
+  public final TextView tvEscudoHome;
+
+  @NonNull
+  public final TextView tvFamhome;
+
+  @NonNull
+  public final TextView tvPaisHome;
+
+  private FragmentHomeBinding(@NonNull ConstraintLayout rootView, @NonNull CardView cardDivHome,
+      @NonNull CardView cardDivTilHome, @NonNull CardView cardEncHome,
+      @NonNull CardView cardEscudoHome, @NonNull CardView cardFamHome,
+      @NonNull CardView cardPaisHome, @NonNull ConstraintLayout swipe, @NonNull TextView tvDivHome,
+      @NonNull TextView tvDivTilHome, @NonNull TextView tvEncHome, @NonNull TextView tvEscudoHome,
+      @NonNull TextView tvFamhome, @NonNull TextView tvPaisHome) {
     this.rootView = rootView;
+    this.cardDivHome = cardDivHome;
+    this.cardDivTilHome = cardDivTilHome;
+    this.cardEncHome = cardEncHome;
+    this.cardEscudoHome = cardEscudoHome;
+    this.cardFamHome = cardFamHome;
+    this.cardPaisHome = cardPaisHome;
     this.swipe = swipe;
-    this.tvGameDesc2 = tvGameDesc2;
+    this.tvDivHome = tvDivHome;
+    this.tvDivTilHome = tvDivTilHome;
+    this.tvEncHome = tvEncHome;
+    this.tvEscudoHome = tvEscudoHome;
+    this.tvFamhome = tvFamhome;
+    this.tvPaisHome = tvPaisHome;
   }
 
   @Override
@@ -59,15 +108,83 @@ public final class FragmentHomeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      ConstraintLayout swipe = (ConstraintLayout) rootView;
-
-      id = R.id.tvGameDesc2;
-      TextView tvGameDesc2 = ViewBindings.findChildViewById(rootView, id);
-      if (tvGameDesc2 == null) {
+      id = R.id.cardDivHome;
+      CardView cardDivHome = ViewBindings.findChildViewById(rootView, id);
+      if (cardDivHome == null) {
         break missingId;
       }
 
-      return new FragmentHomeBinding((ConstraintLayout) rootView, swipe, tvGameDesc2);
+      id = R.id.cardDivTilHome;
+      CardView cardDivTilHome = ViewBindings.findChildViewById(rootView, id);
+      if (cardDivTilHome == null) {
+        break missingId;
+      }
+
+      id = R.id.cardEncHome;
+      CardView cardEncHome = ViewBindings.findChildViewById(rootView, id);
+      if (cardEncHome == null) {
+        break missingId;
+      }
+
+      id = R.id.cardEscudoHome;
+      CardView cardEscudoHome = ViewBindings.findChildViewById(rootView, id);
+      if (cardEscudoHome == null) {
+        break missingId;
+      }
+
+      id = R.id.cardFamHome;
+      CardView cardFamHome = ViewBindings.findChildViewById(rootView, id);
+      if (cardFamHome == null) {
+        break missingId;
+      }
+
+      id = R.id.cardPaisHome;
+      CardView cardPaisHome = ViewBindings.findChildViewById(rootView, id);
+      if (cardPaisHome == null) {
+        break missingId;
+      }
+
+      ConstraintLayout swipe = (ConstraintLayout) rootView;
+
+      id = R.id.tvDivHome;
+      TextView tvDivHome = ViewBindings.findChildViewById(rootView, id);
+      if (tvDivHome == null) {
+        break missingId;
+      }
+
+      id = R.id.tvDivTilHome;
+      TextView tvDivTilHome = ViewBindings.findChildViewById(rootView, id);
+      if (tvDivTilHome == null) {
+        break missingId;
+      }
+
+      id = R.id.tvEncHome;
+      TextView tvEncHome = ViewBindings.findChildViewById(rootView, id);
+      if (tvEncHome == null) {
+        break missingId;
+      }
+
+      id = R.id.tvEscudoHome;
+      TextView tvEscudoHome = ViewBindings.findChildViewById(rootView, id);
+      if (tvEscudoHome == null) {
+        break missingId;
+      }
+
+      id = R.id.tvFamhome;
+      TextView tvFamhome = ViewBindings.findChildViewById(rootView, id);
+      if (tvFamhome == null) {
+        break missingId;
+      }
+
+      id = R.id.tvPaisHome;
+      TextView tvPaisHome = ViewBindings.findChildViewById(rootView, id);
+      if (tvPaisHome == null) {
+        break missingId;
+      }
+
+      return new FragmentHomeBinding((ConstraintLayout) rootView, cardDivHome, cardDivTilHome,
+          cardEncHome, cardEscudoHome, cardFamHome, cardPaisHome, swipe, tvDivHome, tvDivTilHome,
+          tvEncHome, tvEscudoHome, tvFamhome, tvPaisHome);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

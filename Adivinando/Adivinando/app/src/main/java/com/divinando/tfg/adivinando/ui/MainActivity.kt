@@ -1,6 +1,7 @@
 package com.divinando.tfg.adivinando.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -20,12 +21,22 @@ import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 
 class MainActivity : AppCompatActivity() {
     //region Declaramos variables
+
+        object ObjUser{
+            var name =""
+            var point = ""
+            var game = ""
+            var mail = ""
+            var id = ""
+        }
+
         private lateinit var appBarConfiguration: AppBarConfiguration
         private lateinit var binding: ActivityMainBinding
         private  lateinit var  navView : NavigationView
@@ -42,8 +53,12 @@ class MainActivity : AppCompatActivity() {
             var listaDePaisesEnInglessinlimp = ArrayList<String>()
             var listaDePaisesEnIngles = ArrayList<String>()
             var listaDiccionarioEspañollmp= ArrayList<String>()
+            var listaLimpiaFamosos= mutableListOf<DocumentSnapshot>()
+            var listaLimpiarToF= mutableListOf<DocumentSnapshot>()
             var listaDiccionarioEspañol= ArrayList<String>()
-
+            var listaTildes = ArrayList<String>()
+            var listaToF = mutableListOf<DocumentSnapshot>()
+            var lista4chooser = mutableListOf<DocumentSnapshot>()
             var listaDiccionarioEnInglesinlimp = ArrayList<String>()
             var listaDiccionarioEnIngles = ArrayList<String>()
             var urlssinlimp = ArrayList<String>()
@@ -58,8 +73,10 @@ class MainActivity : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         //region AUTORIZAMOS A FIREBASE
             mFirebaseAuth = Firebase.auth
+            ObjUser.mail = mFirebaseAuth.currentUser?.email.toString()
         //endregion
         //region Config Layout and Fragments
             binding = ActivityMainBinding.inflate(layoutInflater)
@@ -117,25 +134,27 @@ class MainActivity : AppCompatActivity() {
         //endregion
         loadGamesFromFirebase()
         //region Cargando el ArrayList
-            val game1 = GameObjeto("Divinando","Normal","Español","https://www.astucesmobiles.com/wp-content/uploads/2022/02/Install-and-Play-Wordle-on-iPhone-.png",null,listaDiccionarioEspañol,"Pon a prueba al diccionario de la RAE",5,null)
+            val game1 = GameObjeto("Divinando","Normal","Español","https://www.astucesmobiles.com/wp-content/uploads/2022/02/Install-and-Play-Wordle-on-iPhone-.png",null,listaDiccionarioEspañol,null,"Pon a prueba al diccionario de la RAE",5,null)
             games.add(game1)
-            val game2= GameObjeto("Divinando","Con Tildes","Español","https://tamtampress.files.wordpress.com/2012/10/tilde.jpg",null,listaDiccionarioEspañol,"Pon a prueba al diccionario de la RAE con tildes",5,null)
+            val game2= GameObjeto("Divinando","Con Tildes","Español","https://tamtampress.files.wordpress.com/2012/10/tilde.jpg",null,listaTildes,null,"Pon a prueba al diccionario de la RAE con tildes",5,null)
             games.add(game2)
-            val game3= GameObjeto("Divinando","Encadenados","Español","https://m.media-amazon.com/images/I/71bt3CtdEkL._SX342_.jpg",null,listaDiccionarioEspañol,"Pon a prueba a tu mapa mental",5,null)
+            val game3= GameObjeto("Divinando","Encadenados","Español","https://m.media-amazon.com/images/I/71bt3CtdEkL._SX342_.jpg",null,listaDiccionarioEspañol,null,"Pon a prueba a tu mapa mental",5,null)
             games.add(game3)
-            val game4= GameObjeto("Guesser","CountryGuesser","Español","https://cdn.icon-icons.com/icons2/1531/PNG/512/3253482-flag-spain-icon_106784.png",urls,listaDePaisesEnEspañol,"Pon a prueba a tu mapa geográfico",5,null)
+            val game4= GameObjeto("Guesser","CountryGuesser","Español","https://cdn.icon-icons.com/icons2/1531/PNG/512/3253482-flag-spain-icon_106784.png",urls,listaDePaisesEnEspañol,null,"Pon a prueba a tu mapa geográfico",5,null)
             games.add(game4)
-            val game5= GameObjeto("InsertMode","InsertPalabras","Español","https://www.gmkfreelogos.com/logos/I/img/InsERT.gif",null,null,"Insertenos alguna palabra para ayudarnos",5,null)
+            val game5= GameObjeto("InsertMode","InsertPalabras","Español","https://www.gmkfreelogos.com/logos/I/img/InsERT.gif",null,null,null,"Insertenos alguna palabra para ayudarnos",5,null)
             games.add(game5)
-            val game6 = GameObjeto("Chooser","4Chooser","Español","https://www.crushpixel.com/big-static11/preview4/pencil-4-options-infographic-piad-710269.jpg",null,null,"Modo de 4 elecciones ",5,null)
+            val game6 = GameObjeto("Chooser","4Chooser","Español","https://www.crushpixel.com/big-static11/preview4/pencil-4-options-infographic-piad-710269.jpg",null,null, lista4chooser,"Modo de 4 elecciones ",5,null)
             games.add(game6)
-            val game7 = GameObjeto("TOF","GUESS IT","Español","https://icon-library.com/images/true-false-icon/true-false-icon-14.jpg",null,null,"Adivina si es verdadera o falsa ",5,null)
+            val game7 = GameObjeto("TOF","GUESS IT","Español","https://icon-library.com/images/true-false-icon/true-false-icon-14.jpg",null,null,listaToF,"Adivina si es verdadera o falsa ",5,null)
             games.add(game7)
 
         //endregion
 
-
     }
+
+
+
     /**
      * Metodo logoutDialog
      */
@@ -177,9 +196,8 @@ class MainActivity : AppCompatActivity() {
 
             user.text = currentUser.displayName
             correo.text = currentUser.email
+
             Glide.with(this).load(currentUser.photoUrl).into(image)
-
-
 
         }
     //endregion
@@ -245,7 +263,7 @@ class MainActivity : AppCompatActivity() {
             }
         //endregion
         //region Sacando palabras diccionario
-        db.collection("Diccionario").document("palabras").get().addOnSuccessListener { document ->
+       db.collection("Diccionario").document("palabras").get().addOnSuccessListener { document ->
 
             /**
              * El dato que devuelve el documento es de tipo HashMap
@@ -254,12 +272,19 @@ class MainActivity : AppCompatActivity() {
              *   palabras => bobo
              */
 
+           listaDiccionarioEspañollmp = document.data?.get("palabrastildeanas") as ArrayList<String>
+           listaDiccionarioEspañollmp.forEach{
+                   entry->
+               listaTildes.add(entry)
+
+           }
+
+
             //region Esto te devuelve la lista de paises en español y lo parseo arrayList ya que arriba he inicializado un ArrayList
                 listaDiccionarioEspañollmp = document.data?.get("palabrasEspañola") as ArrayList<String>
                 listaDiccionarioEspañollmp.forEach{
                     entry->
                     listaDiccionarioEspañol.add(entry)
-                    
                 }
             //endregion
             //region Esto te devuelve la lista de paises en ingles y lo parseo arrayList ya que arriba he inicializado un ArrayList
@@ -275,10 +300,22 @@ class MainActivity : AppCompatActivity() {
         //endregion
 
 
+        db.collection("Famosos").get().addOnSuccessListener {
+                listaLimpiaFamosos = it.documents
+                listaLimpiaFamosos.forEach { entry ->
+                    lista4chooser.add(entry)
+                }
 
+        }
+
+        db.collection("Escudos").get().addOnSuccessListener {
+            listaLimpiarToF = it.documents
+            listaLimpiarToF.forEach { entry ->
+                listaToF.add(entry)
+            }
+
+        }
 
     }
-
-
 
 }

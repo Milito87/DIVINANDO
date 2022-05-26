@@ -15,6 +15,7 @@ import com.chaquo.python.Python
 import com.chaquo.python.android.AndroidPlatform
 import com.divinando.tfg.adivinando.R
 import com.divinando.tfg.adivinando.databinding.FragmentLoginBinding
+import com.divinando.tfg.adivinando.ui.MainActivity
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -176,6 +177,7 @@ class Login : Fragment() {
             .addOnCompleteListener(requireActivity()) { task ->
                 //SI EL LOGUEO ES EXITOSO
                 if (task.isSuccessful) {
+                    MainActivity.ObjUser.mail = email
                     findNavController().navigate(R.id.action_login_to_nav_home)
                 } else {
                     try {
@@ -271,6 +273,7 @@ class Login : Fragment() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
+
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
@@ -289,8 +292,7 @@ class Login : Fragment() {
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             user.displayName?.let { findNavController().navigate(R.id.action_login_to_nav_home) }
-
-
+            MainActivity.ObjUser.mail = user.email.toString()
         }
     }
 }

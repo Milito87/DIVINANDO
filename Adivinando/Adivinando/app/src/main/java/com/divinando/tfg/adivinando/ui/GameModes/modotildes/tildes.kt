@@ -17,6 +17,7 @@ import com.divinando.tfg.adivinando.R
 import com.divinando.tfg.adivinando.databinding.FragmentNormalModeBinding
 import com.divinando.tfg.adivinando.databinding.FragmentTildesBinding
 import com.divinando.tfg.adivinando.model.entity.GameObjeto
+import com.divinando.tfg.adivinando.ui.MainActivity
 import java.util.regex.Pattern
 
 class tildes : Fragment() {
@@ -26,7 +27,7 @@ class tildes : Fragment() {
     private val binding get() = _binding!!
     lateinit var objeto: GameObjeto
     var bundle = Bundle()
-
+    var points = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -225,6 +226,8 @@ class tildes : Fragment() {
                 letra4.isEnabled = false
                 letra5.isEnabled = false
 
+                points += 5
+
                 binding.btSiguiente.visibility = View.VISIBLE
                 binding.btTerminar.visibility = View.VISIBLE
 
@@ -250,7 +253,7 @@ class tildes : Fragment() {
                         )
                     )
                     letra1.isEnabled = false
-
+                    points++
                 } else {
                     if (coincidenciaEstaDentro(palabraDiccionario, letra1.text.toString())) {
                         letra1.setBackgroundColor(
@@ -276,7 +279,7 @@ class tildes : Fragment() {
                         )
                     )
                     letra2.isEnabled = false
-
+                    points++
                 } else {
                     if (coincidenciaEstaDentro(palabraDiccionario, letra2.text.toString())) {
                         letra2.setBackgroundColor(
@@ -302,7 +305,7 @@ class tildes : Fragment() {
                         )
                     )
                     letra3.isEnabled = false
-
+                    points++
                 } else {
                     if (coincidenciaEstaDentro(palabraDiccionario, letra3.text.toString())) {
                         letra3.setBackgroundColor(
@@ -328,7 +331,7 @@ class tildes : Fragment() {
                         )
                     )
                     letra4.isEnabled = false
-
+                    points++
                 } else {
                     if (coincidenciaEstaDentro(palabraDiccionario, letra4.text.toString())) {
                         letra4.setBackgroundColor(
@@ -354,7 +357,7 @@ class tildes : Fragment() {
                         )
                     )
                     letra5.isEnabled = false
-
+                    points++
 
                 } else {
                     if (coincidenciaEstaDentro(palabraDiccionario, letra5.text.toString())) {
@@ -413,6 +416,7 @@ class tildes : Fragment() {
                 letra5.isEnabled = false
                 letra6.isEnabled = false
 
+                points += 5
 
                 binding.btSiguiente.visibility = View.VISIBLE
                 binding.btTerminar.visibility = View.VISIBLE
@@ -431,6 +435,7 @@ class tildes : Fragment() {
                 if(coincidenciaPerfectaPorPosicion(palabraDiccionario,letra1.text.toString(),0)){
                     letra1.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.correctletter))
                     letra1.isEnabled = false
+                    points++
                 }
                 else{
                     if(coincidenciaEstaDentro(palabraDiccionario,letra1.text.toString())){
@@ -441,6 +446,7 @@ class tildes : Fragment() {
                 if(coincidenciaPerfectaPorPosicion(palabraDiccionario,letra2.text.toString(),1)){
                     letra2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.correctletter))
                     letra2.isEnabled = false
+                    points++
                 }else{
                     if(coincidenciaEstaDentro(palabraDiccionario,letra2.text.toString())){
                         letra2.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.positionletter))
@@ -450,6 +456,7 @@ class tildes : Fragment() {
                 if(coincidenciaPerfectaPorPosicion(palabraDiccionario,letra3.text.toString(),2)){
                     letra3.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.correctletter))
                     letra3.isEnabled = false
+                    points++
                 }
                 else{
                     if(coincidenciaEstaDentro(palabraDiccionario,letra3.text.toString())){
@@ -460,6 +467,7 @@ class tildes : Fragment() {
                 if(coincidenciaPerfectaPorPosicion(palabraDiccionario,letra4.text.toString(),3)){
                     letra4.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.correctletter))
                     letra4.isEnabled = false
+                    points++
                 }else{
                     if(coincidenciaEstaDentro(palabraDiccionario,letra4.text.toString())){
                         letra4.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.positionletter))
@@ -474,6 +482,7 @@ class tildes : Fragment() {
                         )
                     )
                     letra5.isEnabled = false
+                    points++
                 }
                 else{
                     letra5.setBackgroundColor(
@@ -488,6 +497,7 @@ class tildes : Fragment() {
                 if(coincidenciaPerfectaPorPosicion(palabraDiccionario,letra6.text.toString(),0)){
                     letra6.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.correctletter))
                     letra6.isEnabled = false
+                    points++
                 }
                 else{
                     if(coincidenciaEstaDentro(palabraDiccionario,letra6.text.toString())){
@@ -592,8 +602,9 @@ class tildes : Fragment() {
 
     }
     fun terminar(){
-
-        findNavController().navigate(R.id.action_normalMode_to_nav_home)
+        MainActivity.ObjUser.game = "divtildes"
+        MainActivity.ObjUser.point = points.toString()
+        findNavController().navigate(R.id.tildes_toend)
     }
     fun limpiatexto(fila1: EditText, fila2: EditText, fila3: EditText, fila4 : EditText, fila5 : EditText, fila6 : EditText?){
 

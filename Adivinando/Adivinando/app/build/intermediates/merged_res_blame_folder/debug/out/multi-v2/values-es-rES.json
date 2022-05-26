@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\DIVINANDO\\Adivinando\\Adivinando\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es-rES\\values-es-rES.xml",
+            "outputFile": "C:\\Users\\Milito\\Documents\\GitHub\\DIVINANDO\\Adivinando\\Adivinando\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es-rES\\values-es-rES.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ajgar\\.gradle\\caches\\transforms-3\\a6aa335538c49a39f425b50cbe4c9f9c\\transformed\\jetified-facebook-login-13.2.0\\res\\values-es-rES\\values-es-rES.xml",
+                    "source": "C:\\Users\\Milito\\.gradle\\caches\\transforms-3\\a6aa335538c49a39f425b50cbe4c9f9c\\transformed\\jetified-facebook-login-13.2.0\\res\\values-es-rES\\values-es-rES.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
